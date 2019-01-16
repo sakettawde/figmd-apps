@@ -59,35 +59,52 @@ class App extends React.Component {
   render() {
     return (
       <Container>
-        <Route
-          path="/"
-          render={routeProps => (
-            <div>
-              <h2>My Apps</h2>
-              <Link to="/contacts">Contacts</Link>
-            </div>
-          )}
-          exact
-        />
-        <Route
-          path="/contacts"
-          render={routeProps => (
-            <Contacts contacts={this.state.contacts} {...routeProps} />
-          )}
-        />
-        <Route
-          path="/add"
-          render={routeProps => (
-            <AddContact addContact={this.addContact} {...routeProps} />
-          )}
-        />
-        <Route
-          path="/edit"
-          render={routeProps => (
-            <Edit editContact={this.editContact} {...routeProps} />
-          )}
-        />
-        <Route path="/view" render={routeProps => <View {...routeProps} />} />
+        <Switch>
+          <Route
+            path="/"
+            render={routeProps => (
+              <div>
+                <h2>My Apps</h2>
+                <Link to="/contacts">Contacts</Link>
+              </div>
+            )}
+            exact
+          />
+          <Route
+            path="/contacts"
+            render={routeProps => (
+              <Contacts contacts={this.state.contacts} {...routeProps} />
+            )}
+            exact
+          />
+          <Route
+            path="/add"
+            render={routeProps => (
+              <AddContact addContact={this.addContact} {...routeProps} />
+            )}
+            exact
+          />
+          <Route
+            path="/edit"
+            render={routeProps => (
+              <Edit editContact={this.editContact} {...routeProps} />
+            )}
+            exact
+          />
+          <Route
+            exact
+            path="/view"
+            render={routeProps => <View {...routeProps} />}
+          />
+          <Route
+            render={routeProps => (
+              <div>
+                <h2>You are not supposed to be here :/</h2>
+                <span>Custom 404 Page (like a boss)</span>
+              </div>
+            )}
+          />
+        </Switch>
       </Container>
     )
   }
