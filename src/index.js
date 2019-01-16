@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { BrowserRouter, Route, Link } from "react-router-dom"
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom"
 import Contacts from "./screens/Contacts"
 import AddContact from "./screens/AddContact"
 import View from "./screens/View"
